@@ -6,40 +6,50 @@
 
 <template>
   <div id="all">
+    <!-- 第一大部分-三个面板区 -->
     <div id="main">
+      <!-- 第一个面板（橙色欢迎面板） -->
       <div id="first">
+        <!-- 第一个面板中的文字部分 -->
         <div id="words">
           <img src="./assets/images/smile.png" id="smile">
           <p id="welZh">欢迎,</p>
           <p id="welEn">Welcome.</p>
         </div>
+        <!-- 第一个面板下方尖角 -->
         <div id="rectangle"></div>
       </div>
-
+      <!-- 第二个面板-流量统计和时间显示面板 -->
       <div id="second">
+        <!-- 第二个面板上显示的用户名 -->
         <h1 id="userName">yuanqh23</h1>
+        <!-- 第二个面板上显示的统计信息 -->
         <div id="showing">
+          <!-- 显示的使用时间 -->
           <div id="duration">
             <div class="remainder">已连接Duration</div>
             <span id="time">00:07:03</span>
           </div>
+          <!-- 显示的流量使用情况 -->
           <div id="usage">
             <div class="remainder">已用流量usage</div>
             <div id="container">
               <div id="progressing"><small>27.43G</small></div>
             </div>            
-            <!-- <span id="usageWord">27.43G</span> -->       
           </div>
         </div>
       </div>
-
+      <!-- 第三个面板-断开连接面板 -->
       <div id="third">
+        <!-- 第三个面板右上方的灰色三角形 -->
         <div id="rec2"></div>
+        <!-- 第三个面板上的断开连接按钮 -->
         <button id="cutButton">
           断开连接<br><small>Disconnected</small>
         </button>
       </div>
     </div>
+    <!-- 第二大部分-底部图标和文字 -->
     <footer id="footer">
       <div><img src="./assets/images/info.gif"><span>Info</span></div>
       <div><img src="./assets/images/lib.gif"><span>Lib</span></div>
@@ -142,7 +152,7 @@
     width: 70%;
     height: 85%;
 
-    /* box-shadow:  -2px 2px 8px rgba(0, 0, 0, 0.3); */
+    /* 为第二个面板添加底部的阴影 */
     filter: drop-shadow(-10px 15px 10px rgba(110, 109, 109, 0.2));
   }
 
@@ -186,6 +196,7 @@
 
     width: 70%;
     height: 80%;
+    /* 进度条背景图片添加 */
     background-image: url(./assets/images/usage.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -243,6 +254,7 @@
   }
 
   #third #cutButton {
+    /* 断开连接按钮的样式 */
     background-color: rgb(199, 203, 221);
     border: 0px;
     width: 80%;
