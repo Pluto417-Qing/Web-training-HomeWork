@@ -251,6 +251,7 @@
     padding-top: 1%;
     font-family: "SimHei", "黑体", sans-serif;
     font-size: medium;
+    color: #474652;
     font-weight: 500;
 
     position: relative;
