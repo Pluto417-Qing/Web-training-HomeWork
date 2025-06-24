@@ -53,8 +53,10 @@
 <style scoped>
   /* 总体的样式，包括背景，宽高*/
   #all { 
+    margin: auto;
     background-color: #e4e4e4;
     text-align: center;
+    align-items: center;
     width: 600px;
     height: 400px;
   }
@@ -75,7 +77,7 @@
     top: 0%;
     left: 0%;
     width: 90%;
-    height: 70%;
+    height: 80%;
     text-align: left;
     
     background-color: #f33711;
@@ -93,16 +95,16 @@
   }
 
   #first #words #welZh {
-    font-size: 160%;
-    opacity: 50%;
+    font-size: 180%;
+    opacity: 80%;
     font-family:Arial, Helvetica, sans-serif;
     margin-bottom: 0px;
     margin-top: 10%;
   }
 
   #first #words #welEn {
-    font-size: 90%;
-    opacity: 50%;
+    font-size: 100%;
+    opacity: 80%;
     font-family:Arial, Helvetica, sans-serif;
     margin-top: 10%;
     margin-bottom: 10%;
@@ -125,7 +127,7 @@
 
     /* 对该三角形进行定位 */
     position: relative;
-    bottom: -5%;
+    bottom: -14%;
     left: 6%
   }
 /*---------------------------------------*/
@@ -168,7 +170,7 @@
     font-size: 10%;
     white-space: pre-wrap;
     width: 18%;
-    font-weight: 600;
+    font-weight: 300;
     margin-bottom: 3%;
     margin-top: 2%;
   }
@@ -217,18 +219,18 @@
     /* 相对定位 */
     z-index: 2;
     position: relative;
-    bottom: 87%;
-    right: -68%;
+    bottom: 90%;
+    right: -63%;
 
-    width: 32%;
-    height: 23%;
+    width: 35%;
+    height: 25%;
     background-color: white;
   }
 
   #third #rec2 {
     width: 0px;
     height: 0px;
-    border: 19px solid #d1d1d1;
+    border: 11px solid #bfbdcb;
     border-right-color: white;
     border-bottom-color: white;
     border-left-color: rgb(247, 247, 245);
@@ -236,20 +238,20 @@
 
     /* 对该三角形进行定位 */
     position: relative;
-    bottom: 30%;
-    right: -72%
+    bottom: 19%;
+    right: -85%
   }
 
   #third #cutButton {
     background-color: rgb(199, 203, 221);
     border: 0px;
     width: 80%;
-    margin: 5% auto;
-    padding-bottom: 3%;
-    padding-top: 3%;
-    font-family: monospace;
+    margin: 17% auto;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    font-family: "SimHei", "黑体", sans-serif;
     font-size: medium;
-    font-weight: 600;
+    font-weight: 500;
 
     position: relative;
     top: -68%;
@@ -259,7 +261,7 @@
   /* 底下小图标部分样式 */
   #footer { 
     position: relative;
-    bottom: -15%;
+    bottom: -20%;
     right: 8%;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 700;
