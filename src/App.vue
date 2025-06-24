@@ -9,7 +9,7 @@
     <div id="main">
       <div id="first">
         <div id="words">
-          <img src="/src/images/smile.png" id="smile">
+          <img src="./assets/images/smile.png" id="smile">
           <p id="welZh">欢迎,</p>
           <p id="welEn">Welcome.</p>
         </div>
@@ -41,10 +41,10 @@
       </div>
     </div>
     <footer id="footer">
-      <div><img src="/src/images/info.gif"><span>Info</span></div>
-      <div><img src="/src/images/lib.gif"><span>Lib</span></div>
-      <div><img src="/src/images/learn.gif"><span>Learn</span></div>
-      <div><img src="/src/images/mail.gif"><span>Mail</span></div>
+      <div><img src="./assets/images/info.gif"><span>Info</span></div>
+      <div><img src="./assets/images/lib.gif"><span>Lib</span></div>
+      <div><img src="./assets/images/learn.gif"><span>Learn</span></div>
+      <div><img src="./assets/images/mail.gif"><span>Mail</span></div>
     </footer>
   </div>
   
@@ -131,6 +131,7 @@
 /*---------------------------------------*/
   /* 第二个面板定位 */
   #second {
+    z-index: 1;
     position: relative;
     top: -70%;
     left: 25%;
@@ -139,7 +140,8 @@
     width: 70%;
     height: 85%;
 
-    box-shadow:  -2px 2px 8px rgba(0, 0, 0, 0.3);
+    /* box-shadow:  -2px 2px 8px rgba(0, 0, 0, 0.3); */
+    filter: drop-shadow(-10px 15px 10px rgba(110, 109, 109, 0.2));
   }
 
   #second #userName {
@@ -182,7 +184,7 @@
 
     width: 70%;
     height: 80%;
-    background-image: url(/src/images/usage.png);
+    background-image: url(./assets/images/usage.png);
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -213,6 +215,7 @@
   /* 第三个面板定位 */
   #third {
     /* 相对定位 */
+    z-index: 2;
     position: relative;
     bottom: 87%;
     right: -68%;
