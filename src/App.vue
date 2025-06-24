@@ -1,301 +1,459 @@
 <script setup>
-  import { ref } from "vue";
-
-
 </script>
 
 <template>
-  <div id="all">
-    <!-- 第一大部分-三个面板区 -->
-    <div id="main">
-      <!-- 第一个面板（橙色欢迎面板） -->
-      <div id="first">
-        <!-- 第一个面板中的文字部分 -->
-        <div id="words">
-          <img src="./assets/images/smile.png" id="smile">
-          <p id="welZh">欢迎,</p>
-          <p id="welEn">Welcome.</p>
+    <div id="all">
+        <!-- 第一大部分-头部图标区域 -->
+        <header id="header">
+            <div id="netImage"></div>
+            <div id="code">
+                <img id="codeImage" src="@/assets/images/scanCode.jpg">
+                <small id="codeWord">欢迎关注"清华大学信息服务"</small>
+            </div>   
+        </header>
+
+        <!-- 第二大部分-面板区 -->
+        <div id="main">
+            <!-- 第一个面板（紫色面板） -->
+            <div id="first">
+                <!-- 第一个面板中的文字部分 -->
+                <div id="purple1"></div>
+                <div id="purple2"></div>
+                <!-- 第一个面板下方尖角 -->
+                <div id="rectangle1"></div>
+                <!-- 第二个面板下方尖角 -->
+                <div id="rectangle2"></div>
+            </div>
+            <!-- 第二个面板-流量统计和时间显示面板 -->
+            <div id="second">
+                <div id="input">
+                    <div class="input2">
+                        <label for="userID">用户名User ID</label>
+                        <input type="text" id="userID">
+                    </div>
+                    <div class="input2">
+                        <label for="password">密码Password</label>
+                        <input type="password" id="password">
+                    </div>
+                </div>
+                
+                <div id="checkBox">
+                    <input type="checkbox" />
+                    <div id="checkWord">访问校外(IPv4)网络Access to the Internet(IPv4)</div>
+                </div>
+                <button id="button">连接<br/>Connect</button>
+                <div id="rectangle3"></div>
+            </div>
         </div>
-        <!-- 第一个面板下方尖角 -->
-        <div id="rectangle"></div>
-      </div>
-      <!-- 第二个面板-流量统计和时间显示面板 -->
-      <div id="second">
-        <!-- 第二个面板上显示的用户名 -->
-        <h1 id="userName">yuanqh23</h1>
-        <!-- 第二个面板上显示的统计信息 -->
-        <div id="showing">
-          <!-- 显示的使用时间 -->
-          <div id="duration">
-            <div class="remainder">已连接Duration</div>
-            <span id="time">00:07:03</span>
-          </div>
-          <!-- 显示的流量使用情况 -->
-          <div id="usage">
-            <div class="remainder">已用流量usage</div>
-            <div id="container">
-              <div id="progressing"><small>27.43G</small></div>
-            </div>            
-          </div>
+
+        <!-- 第三大部分-底部下载栏目 -->
+        <div id="download">
+            <div id="downloadImage"></div>
+            <ul id="downIcon">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
-      </div>
-      <!-- 第三个面板-断开连接面板 -->
-      <div id="third">
-        <!-- 第三个面板右上方的灰色三角形 -->
-        <div id="rec2"></div>
-        <!-- 第三个面板上的断开连接按钮 -->
-        <button id="cutButton">
-          断开连接<br><small>Disconnected</small>
-        </button>
-      </div>
+
+        <!-- 第四大部分-底部小图标栏目 -->
+        <div id="bookmark">
+            <ul id="downWord">
+                <li>Windows</li>
+                <li>MacOS</li>
+                <li>Linux</li>
+                <li>Android</li>
+                <li>iOS</li>
+            </ul>
+            <div id="icons">
+                <div class="icon" id="bookIcon">
+                    <img class="iconImage" src="@/assets/images/bookmark.gif">
+                    <div class="iconWord">
+                        <span class="iconWordZh">收藏</span><br/>
+                        <span class="iconWordEn">Bookmark This Page</span>
+                    </div>
+                </div>
+                <div class="icon" id="helpIcon">
+                    <img class="iconImage" src="@/assets/images/help.gif">
+                    <div class="iconWord">
+                        <span class="iconWordZh">帮助</span><br/>
+                        <span class="iconWordEn">Help</span>
+                    </div>
+                </div>
+                <div class="icon" id="contactIcon">
+                    <img class="iconImage" src="@/assets/images/phone.gif">
+                    <div class="iconWord">
+                        <span class="iconWordZh">联系</span><br/>
+                        <span class="iconWordEn">Contact</span>
+                    </div>
+                    <div class="iconWord" :class="iconWordEn">
+                        <span>+86-10-62784859</span><br/>
+                        <span>its@tsinghua.edu.cn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第五大部分-底部脚注 -->
+        <footer id="footer">
+            <small>清华大学信息化技术中心</small><br/>
+            <small>Information Technology Center of Tsinghua University</small>
+        </footer>
     </div>
-    <!-- 第二大部分-底部图标和文字 -->
-    <footer id="footer">
-      <div><img src="./assets/images/info.gif"><span>Info</span></div>
-      <div><img src="./assets/images/lib.gif"><span>Lib</span></div>
-      <div><img src="./assets/images/learn.gif"><span>Learn</span></div>
-      <div><img src="./assets/images/mail.gif"><span>Mail</span></div>
-    </footer>
-  </div>
-  
 </template>
 
 <style scoped>
-  /* 总体的样式，包括背景，宽高*/
-  #all { 
-    margin: auto;
-    background-color: #e4e4e4;
-    text-align: center;
-    align-items: center;
-    width: 600px;
-    height: 400px;
-  }
+    /* 全局样式 */
+    #all {
+        width: 450px;
+        height: 380px;
+        margin: auto;
+    }
+/* ------------------------------------------- */
+    /* 头部图标栏样式 */
+    #header {
+        position: relative;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: space-between;
+    }
 
-  /* 先定位上面三个小面板总体 */
-  #main {
-    position: relative;
-    top: 10%;
-    left: 10%;
+    #header #netImage {
+        width: 38%;
+        height: 80%;
+        margin-top: 1%;
+        background-image: url(@/assets/images/thuNet.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
 
-    width: 80%;
-    height: 60%;
-  }
-/*----------------------------------------*/
-  /* 第一个面板（橙色欢迎面板）定位*/
-  #first {
-    position: relative;
-    top: 0%;
-    left: 0%;
-    width: 90%;
-    height: 80%;
-    text-align: left;
+    #header #code {
+        width: 22%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    #header #code #codeWord {
+        font-size: 6px;
+        margin-top: 4%;
+        margin-right: 0%;
+        color: #6e6f6f;
+    }
+
+    #header #code #codeImage {
+        width:50%;
+        margin-top: 5%;
+    }
+/* ---------------------------------------- */
+    /* 面板区总体样式 */
+    #main {
+        width: 100%;
+        height: 55%;
+        margin-top: -3%;
+    }
+/* ------------------------------------------- */
+    /* 紫色面板样式 */
+    #first {
+        background-color: #93278f;
+        width: 80%;
+        height: 70%;
+        position: relative;
+        top: 5%;
+        left: 7%;
+    }
+
+    #first #purple1 {
+        background-image: url(@/assets/images/greeting.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        width: 36%;
+        height: 50%;
+
+        position: relative;
+        left: 5%;
+        top: 3%;
+    }
+
+    #first #purple2 {
+        z-index: 1;
+        width: 50%;
+        height: 58%;
+        background-color: #93278f;
+
+        position: relative;
+        top: 1%;
+        left: -3%;
+        box-shadow: -2px 2px 15px rgba(18, 18, 18, 0.2);
+    }
     
-    background-color: #f33711;
-  }
+    #first #rectangle1 {
+        width: 0px;
+        height: 0px;
+        border: 8px solid #6d3b7b;
+        border-right-color: #93278f;
+        border-bottom-color: #93278f;
+        border-left-color: #93278f;
+        transform: rotate(-45deg);
 
-  #first #words {
-    position: relative;
-    top:2%;
-    left: 5%;
-    color: white;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+        position: relative;
+        top: -63%;
+        left: -2%;
+    }
 
-  #first #words #welZh {
-    font-size: 180%;
-    opacity: 80%;
-    font-family:Arial, Helvetica, sans-serif;
-    margin-bottom: 0px;
-    margin-top: 10%;
-  }
+    #first #rectangle2 {
+        width: 0px;
+        height: 0px;
+        border: 12px solid #93278f;
+        border-right-color: #e6e6e6;
+        border-bottom-color: #e6e6e6;
+        border-left-color: #93278f;
 
-  #first #words #welEn {
-    font-size: 100%;
-    opacity: 80%;
-    font-family:Arial, Helvetica, sans-serif;
-    margin-top: 10%;
-    margin-bottom: 10%;
-  }
+        position: relative;
+        top: -10%;
+        left: 5%;
+    }
+/* -------------------------------------------- */
+    /* 面板2样式 */
+    #second {
+        z-index: 2;
+        background-color: #f2f2f2;
+        display: flex;
+        flex-direction: column;
 
-  #first #words #smile {
-    /* display: inline; */
-    width: 60%;
-    margin-top: 25%;
-    margin-left: 3%;
-  }
+        width: 55%;
+        height: 75%;
 
-   /* 通过盒模型控制边框绘制出一个三角形,作为橙色方框的尖角*/
-  #rectangle {
-    width: 0px;
-    height: 0px;
-    border: 20px solid #f33711;
-    border-right-color: #e4e4e4;
-    border-bottom-color: #e4e4e4;
+        position: relative;
+        top: -59%;
+        right: -40%;
+        box-shadow: -2px -7px 20px rgba(155, 155, 155, 0.2);
+    }
 
-    /* 对该三角形进行定位 */
-    position: relative;
-    bottom: -14%;
-    left: 6%
-  }
-/*---------------------------------------*/
-  /* 第二个面板定位 */
-  #second {
-    z-index: 1;
-    position: relative;
-    top: -70%;
-    left: 25%;
+    #second #input {
+        display: flex;
+        flex-direction: column;
+        height: 15%;
+        margin: 1% 10%;
+    }
 
-    background-color: rgb(247, 247, 245);
-    width: 70%;
-    height: 85%;
+    #second #input .input2 {
+        display: flex;
+        margin-top: 7%;
+    }
 
-    /* 为第二个面板添加底部的阴影 */
-    filter: drop-shadow(-10px 15px 10px rgba(110, 109, 109, 0.2));
-  }
+    #second #input input {
+        border: 1px solid white;
+        border-radius: 2px;
+        width: 100%;
+    }
 
-  #second #userName {
-    font-size: x-large;
-    color:#f33711;
-    text-align: left;
-    margin-left: 10%;
-    padding-top: 5%;
-  }
+    #second #input input:focus {
+        outline: none;
+    }
 
-  #second #showing {
-    width: 85%;
-    height: 40%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-  }
+    #second #input label {
+        font-size: 8px;
+        text-align: left;
+        margin-right: 5%;
+        font-weight: 500;
+    }
 
-  #second #showing .remainder {
-    position: relative;
-    left: -20%;
-    display: inline-block;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 10%;
-    white-space: pre-wrap;
-    width: 18%;
-    font-weight: 300;
-    margin-bottom: 3%;
-    margin-top: 2%;
-  }
+    #second #checkBox {
+        color: #93278f;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        margin-left: 10%;
+        display: flex;
 
-  #second #showing #usage .remainder {
-    left: -36%
-  }
+        width: 45%;
+        position: relative;
+        top: 30%;
+        left: 5%;
+        transform: scale(0.7);
+    }
 
-  #second #container {
-    position: relative;
-    left: 30%;
-    top: -70%;
+    #second #checkBox #checkWord {
+        text-align: left;
+        font-size: 10px;
+    }
 
-    width: 70%;
-    height: 80%;
-    /* 进度条背景图片添加 */
-    background-image: url(./assets/images/usage.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+    #second #button {
+        width: 85%;
+        height: 16%;
+        font-size: 9px;
+        background-color: #C0CE55;
+        border: #9CB22E solid 1px;
+        margin-left: auto;
+        margin-right: auto;
 
-  #second #progressing {
-    background-color: rgb(245, 189, 93);
-    width: 40%;
-    height: 52%;
-    position: relative;
-    bottom: -18%;
-    left: 0%;
+        position: relative;
+        top: 32%;
+    }
 
-    font-size: large;
-    color: rgb(69, 69, 69);
-  }
+    #second #rectangle3 {
+        width: 0px;
+        height: 0px;
+        border: 12px solid #f2f2f2;
+        border-right-color: #e6e6e6;
+        border-bottom-color: #e6e6e6;
 
-  #second #showing #time {
-    color: #f33711;
-    font-size: x-large;
-    font-weight: 500;
-    margin-bottom: 0%;
+        position: relative;
+        top: 41%;
+        left: 81%;
+    }
+/* ------------------------------------------- */
+    /* 底部下载图标样式 */
+    #download {
+        width: 100%;
+        height: 15%;
+        position: relative;
+        bottom: 0%;
+    }
 
-    position: relative;
-    left: -10%;
-  }
+    #download #downloadImage {
+        background-image: url(@/assets/images/download.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 35%;
+        height: 40%;
+    }
 
-/*---------------------------------------*/
-  /* 第三个面板定位 */
-  #third {
-    /* 相对定位 */
-    z-index: 2;
-    position: relative;
-    bottom: 90%;
-    right: -63%;
+    #download #downIcon {
+        width: 96%;
+        height: 50%;
 
-    width: 35%;
-    height: 25%;
-    background-color: white;
-  }
+        display: flex;  
+        background-color: #cccccc;  
+        opacity: 50%;
+        /* justify-content: space-evenly;  元素及边缘间隔完全均等 */
 
-  #third #rec2 {
-    width: 0px;
-    height: 0px;
-    border: 11px solid #bfbdcb;
-    border-right-color: white;
-    border-bottom-color: white;
-    border-left-color: rgb(247, 247, 245);
-    transform: rotate(45deg);
+        position: relative;
+        top: -32%;
+        left: 0%;
+        padding-left: 0%;
+        border-radius: 5px;
+        box-shadow: 0 0 90px rgba(0, 0, 0, 0.2);
+    }
 
-    /* 对该三角形进行定位 */
-    position: relative;
-    bottom: 19%;
-    right: -85%
-  }
+    #download #downIcon li:nth-child(1) {
+        background-image: url(@/assets/images/windows.gif);
+    }
 
-  #third #cutButton {
-    /* 断开连接按钮的样式 */
-    background-color: rgb(199, 203, 221);
-    border: 0px;
-    width: 80%;
-    margin: 17% auto;
-    padding-bottom: 1%;
-    padding-top: 1%;
-    font-family: "SimHei", "黑体", sans-serif;
-    font-size: medium;
-    color: #474652;
-    font-weight: 500;
+    #download #downIcon li:nth-child(2) {
+        background-image: url(@/assets/images/mac.gif);
+    }
 
-    position: relative;
-    top: -68%;
-  }
+    #download #downIcon li:nth-child(3) {
+        background-image: url(@/assets/images/linux.gif);
+    }
 
-/*----------------------------------------------*/
-  /* 底下小图标部分样式 */
-  #footer { 
-    position: relative;
-    bottom: -20%;
-    right: 8%;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 700;
-    font-size: x-small;
-    color: #c14820;
-    text-align: right;
-     
-  /* background-color: bisque; */
-  }
+    #download #downIcon li:nth-child(4) {
+        background-image: url(@/assets/images/android.gif);
+    }
 
-  #footer div {
-    display: inline;
-    margin-right: 2%;
-  }
+    #download #downIcon li:nth-child(5) {
+        background-image: url(@/assets/images/ios.gif);
+    }
 
-  #footer div img {
-    width: 3%;
-  }
+    #download #downIcon li{
+        list-style-type: none;
+        background-repeat: no-repeat;
+        /* background-position: center; */
+        background-size: contain;
+        /* display: inline-block; */
 
-  #footer div span {
-    text-align: center;
-    margin-left: 0.5%;
-  }
+        width: 6%;
+        /* margin-left: 10%; */
+        margin-right: 3%;
+        border-radius: 3px;
+        box-shadow: 0 0 -1px rgba(0, 0, 0, 0.2);
+    }
+/* ------------------------------------------- */
+    /* 底部小图标样式 */
+    #bookmark {
+        display: flex;
+        width: 100%;
+        height: 10%;
+
+        position: relative;
+        top: -3%;
+    }
+
+    #bookmark #downWord {
+        list-style-type: none;
+        display: flex;
+        background-color: #808080;
+        width: 45%;
+        height: 80%;
+        padding-left: 1%;
+
+        position: relative;
+        top: -68%;
+        left: -0.2%;
+    }
+
+    #bookmark #downWord li {
+        color: white;
+        font-size: 9px;
+        
+        display: flex;
+        align-items: center;     
+        justify-content: center; 
+        margin-right: 5%;
+        
+        height: 100%;           
+        width: 100%;           
+    }
+
+    #bookmark #icons {
+        width: 60%;
+        position: relative;
+        top: -45%;
+        display: flex;
+    }
+
+    #bookmark .icon {
+        display: flex;
+        font-size: 6px;
+    }
+
+    #bookmark .iconImage {
+        width: 35%;
+        height: 60%;
+        position: relative;
+        bottom: -40%;
+    }
+   
+    #bookmark .iconWord {
+        position: relative;
+        top: 30%;
+    }
+
+    #bookmark #helpIcon {
+        margin-right: 10%;
+    }
+    
+/* ------------------------------------------- */
+    /* 底部脚注样式 */
+    #footer {
+        color: #6e6f6f;
+        font-size: 8px;
+        line-height: 7px;
+        text-align: right;
+
+        position: relative;
+        bottom: 2%;
+        margin-right: 1%;
+    }
 </style>
