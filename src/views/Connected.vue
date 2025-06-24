@@ -1,4 +1,14 @@
 <script setup>
+  import { useRouter } from 'vue-router'
+  import { ref } from 'vue'
+
+  const router = useRouter()
+
+  const cutConnnect = () => {
+      router.push({
+        path: '/',
+      })
+  }
 
 </script>
 
@@ -20,7 +30,7 @@
       <!-- 第二个面板-流量统计和时间显示面板 -->
       <div id="second">
         <!-- 第二个面板上显示的用户名 -->
-        <h1 id="userName">yuanqh23</h1>
+        <h1 id="userName">{{ $route.query.userName }}</h1>
         <!-- 第二个面板上显示的统计信息 -->
         <div id="showing">
           <!-- 显示的使用时间 -->
@@ -42,7 +52,7 @@
         <!-- 第三个面板右上方的灰色三角形 -->
         <div id="rec2"></div>
         <!-- 第三个面板上的断开连接按钮 -->
-        <button id="cutButton">
+        <button id="cutButton" @click="cutConnnect">
           断开连接<br><small>Disconnected</small>
         </button>
       </div>
