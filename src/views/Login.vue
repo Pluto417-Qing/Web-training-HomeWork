@@ -129,8 +129,8 @@
 <style scoped>
     /* 全局样式 */
     #all {
-        width: 470px;
-        height: 380px;
+        width: 530px;
+        height: 470px;
         margin: auto;
         background-color: #e6e6e6;
     }
@@ -147,8 +147,8 @@
     }
 
     #header #netImage {
-        width: 38%;
-        height: 80%;
+        width: 35%;
+        height: 70%;
         margin-top: 1%;
         background-image: url(@/assets/images/thuNet.png);
         background-size: contain;
@@ -229,14 +229,14 @@
         transform: rotate(-45deg);
 
         position: relative;
-        top: -63%;
+        top: -61.5%;
         left: -2%;
     }
 
     #first #rectangle2 {
         width: 0px;
         height: 0px;
-        border: 12px solid #93278f;
+        border: 14px solid #93278f;
         border-right-color: #e6e6e6;
         border-bottom-color: #e6e6e6;
         border-left-color: #93278f;
@@ -326,12 +326,12 @@
     #second #rectangle3 {
         width: 0px;
         height: 0px;
-        border: 12px solid #f2f2f2;
+        border: 14px solid #f2f2f2;
         border-right-color: #e6e6e6;
         border-bottom-color: #e6e6e6;
 
         position: relative;
-        top: 41%;
+        top: 46%;
         left: 81%;
     }
 /* ------------------------------------------- */
