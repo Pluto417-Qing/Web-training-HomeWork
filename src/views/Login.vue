@@ -1,12 +1,11 @@
 <script setup>
     import { ref } from 'vue'
-    import { useRouter } from 'vue-router'
+    import router from '@/router'
+    import { useUserStore } from '@/stores/user'
 
+    const userStore = useUserStore()
     const userName = ref('')
     const password = ref('')   
-    
-    // 获取路由实例，用于页面跳转
-    const router = useRouter()
 
     // 检查输入框内容并进行页面跳转
     const checkInput = () => {
@@ -17,10 +16,23 @@
             alert("密码不能为空!") // 密码为空时弹出提示
             return
         } else {
-            // 输入都不为空时，跳转到 /connected 页面，并传递用户名参数
+            let index = userStore.checkInput(userName.value, password.value) 
+            if (index == 0) {
+                alert("密码不正确!请重新输入密码!")
+                password.value = ''
+                return
+            } else if (index == -1) {
+                // 保存输入的用户名和密码
+                userStore.addUser(userName.value, password.value)
+            }
+            
+            // 跳转到 /connected 页面，并传递用户名参数
             router.push({ 
             path: '/connected', 
-            query: { userName: userName.value }  // 通过 query 传递用户名
+            query: { 
+                userName: userName.value,
+                password: password.value,
+             }  // 通过 query 传递用户名和密码
             })
         }
     }

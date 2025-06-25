@@ -1,9 +1,21 @@
 <script setup>
-  import { useRouter } from 'vue-router'
-  import { ref } from 'vue'
+  import { useRoute } from 'vue-router'
+  import router from '@/router'
+  import { onMounted, onUnmounted, ref } from 'vue'
+  import { computed } from 'vue'
+  import { useUserStore } from '@/stores/user'
 
-  // 获取路由实例，用于页面跳转
-  const router = useRouter()
+  //获取路由实例，用于页面跳转
+  const route = useRoute()
+  const userName = route.query.userName
+  const userStore = useUserStore()
+
+  const hour = ref(0)
+  const min = ref(0)
+  const sec = ref(0)
+
+  let timer = null
+  let timer2 = null
 
   // 断开连接函数，点击后跳转回登录页面
   const cutConnnect = () => {
@@ -11,6 +23,46 @@
         path: '/', // 跳转到根路径（登录页）
       })
   }
+
+  const timeStr = computed(() => {
+    // 利用计算属性格式化时间输出
+    return String(hour.value).padStart(2,'0') + ':' + 
+      String(min.value).padStart(2,'0') + ':' +
+        String(sec.value).padStart(2,'0')
+  })
+
+  const increTime = () => {
+    sec.value += 1
+    formatTime()
+  }
+
+  const increUsage = (usage) => {
+    // 增加用户使用流量
+    userStore.increUsage(userName, usage)
+  }
+
+  const formatTime = () => {
+    // 增加时间
+    if (sec.value >= 60) {
+      sec.value %= 60
+      min.value += 1
+    }
+    if (min.value >= 60) {
+      min.value %= 60
+      hour.value += 1
+    }
+  }
+
+  onMounted(() => {
+    // 设置定时器
+    timer = setInterval(increTime, 1000)
+    timer2 = setInterval(increUsage, 1000, 3.33)
+  })
+
+  onUnmounted(() => {
+    clearInterval(timer)
+    clearInterval(timer2)
+  })
 
 </script>
 
@@ -38,13 +90,15 @@
           <!-- 显示的使用时间 -->
           <div id="duration">
             <div class="remainder">已连接Duration</div>
-            <span id="time">00:07:03</span>
+            <span id="time">{{ timeStr }}</span>
           </div>
           <!-- 显示的流量使用情况 -->
           <div id="usage">
             <div class="remainder">已用流量usage</div>
             <div id="container">
-              <div id="progressing"><small>27.43G</small></div>
+              <div id="progressing" :style="{ width: userStore.usageList[userStore.nameList.indexOf(userName)] / 50 * 100 + '%'}">
+                <small>{{ (userStore.usageList[userStore.nameList.indexOf(userName)]).toFixed(2) }}G</small>
+              </div>
             </div>            
           </div>
         </div>
@@ -214,14 +268,16 @@
 
   #second #progressing {
     background-color: rgb(245, 189, 93);
+    /* width: 40%; */
     width: 40%;
     height: 52%;
     position: relative;
-    bottom: -18%;
+    bottom: -26%;
     left: 0%;
 
     font-size: large;
     color: rgb(69, 69, 69);
+    transition: 1s;
   }
 
   #second #showing #time {
