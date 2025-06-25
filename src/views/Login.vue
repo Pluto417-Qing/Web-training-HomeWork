@@ -5,19 +5,22 @@
     const userName = ref('')
     const password = ref('')   
     
+    // 获取路由实例，用于页面跳转
     const router = useRouter()
 
+    // 检查输入框内容并进行页面跳转
     const checkInput = () => {
         if (userName.value === '') {
-            alert("用户名不能为空!")
+            alert("用户名不能为空!") // 用户名为空时弹出提示
             return
         } else if (password.value === '') {
-            alert("密码不能为空!")
+            alert("密码不能为空!") // 密码为空时弹出提示
             return
         } else {
+            // 输入都不为空时，跳转到 /connected 页面，并传递用户名参数
             router.push({ 
             path: '/connected', 
-            query: { userName: userName.value }  
+            query: { userName: userName.value }  // 通过 query 传递用户名
             })
         }
     }
@@ -368,7 +371,7 @@
         border-radius: 5px;
         box-shadow: 0 0 90px rgba(0, 0, 0, 0.2);
     }
-
+    /* 给列表项添加背景图片为图标 */
     #download #downIcon li:nth-child(1) {
         background-image: url(@/assets/images/windows.gif);
     }

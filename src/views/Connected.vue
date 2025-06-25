@@ -2,11 +2,13 @@
   import { useRouter } from 'vue-router'
   import { ref } from 'vue'
 
+  // 获取路由实例，用于页面跳转
   const router = useRouter()
 
+  // 断开连接函数，点击后跳转回登录页面
   const cutConnnect = () => {
       router.push({
-        path: '/',
+        path: '/', // 跳转到根路径（登录页）
       })
   }
 
